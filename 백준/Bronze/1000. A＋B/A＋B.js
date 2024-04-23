@@ -1,17 +1,11 @@
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
+let fs = require("fs");
+let input = fs.readFileSync("dev/stdin").toString().split(" ");
 
-let input = [];
+let sum = function () {
+  let A = Number(input[0]);
+  let B = Number(input[1]);
 
-readline.on('line', function(line) {
-    input = line.split(' ').map(el => parseInt(el));
-}).on('close', function(){
-	const A = parseInt(input[0]);
-    const B = parseInt(input[1]);
-    if (A > 0 && B < 10) {
-        console.log(A + B);
-    }
-    process.exit();
-});
+  return A + B;
+};
+
+console.log(sum());
